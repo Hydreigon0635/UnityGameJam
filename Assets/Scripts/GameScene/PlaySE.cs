@@ -5,15 +5,16 @@ using UnityEngine;
 public class PlaySE : MonoBehaviour
 {
     public int num;
+    bool check = true;
 
     void OnCollisionEnter(Collision collision)
     {
         BallScript ballscript = collision.gameObject.GetComponent<BallScript>();
-        if(ballscript.CheckFlag()){
+        if(ballscript.CheckFlag() && check){
             SEManager.Instance.PlaySE(num);
         }
-        else{
-            SEManager.Instance.PlaySE(4); //失敗SE
+        else if(check){
+            check = false;
         }
     }
 

@@ -8,6 +8,7 @@ public class CameraScript : MonoBehaviour
     public GameObject gameObject;
     public Vector3 offset = new Vector3(0, 0, 0);
     private BallScript ballscript;
+    bool check = true;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +20,10 @@ public class CameraScript : MonoBehaviour
     {
         if(target != null && ballscript.CheckFlag()){
             transform.position = target.position + offset;
+        }
+        else if(check){
+            check = false;
+            SEManager.Instance.PlaySE(8); //失敗SE
         }
 
     }

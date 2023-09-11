@@ -5,8 +5,12 @@ using UnityEngine;
 public class SEManager : SingletonMonoBehaviour<SEManager>
 {
     public AudioClip Do;
+    public AudioClip Re;
+    public AudioClip Mi;
+    public AudioClip Fa;
     public AudioClip So;
     public AudioClip Ra;
+    public AudioClip Si;
     public AudioClip GameOver;
 
 
@@ -25,12 +29,24 @@ public class SEManager : SingletonMonoBehaviour<SEManager>
                 audioSource.PlayOneShot(Do);
                 break;
             case 2:
-                audioSource.PlayOneShot(So);
+                audioSource.PlayOneShot(Re);
                 break;
             case 3:
-                audioSource.PlayOneShot(Ra);
+                audioSource.PlayOneShot(Mi);
                 break;
             case 4:
+                audioSource.PlayOneShot(Fa);
+                break;
+            case 5:
+                audioSource.PlayOneShot(So);
+                break;
+            case 6:
+                audioSource.PlayOneShot(Ra);
+                break;
+            case 7:
+                audioSource.PlayOneShot(Si);
+                break;
+            case 8:
                 audioSource.PlayOneShot(GameOver);
                 break;
         }

@@ -21,10 +21,10 @@ public class GameScene : MonoBehaviour
         float cameraY = CameraTransform.position.y;
         float ballY = BallTransform.position.y;
 
-        // if(Mathf.Abs(cameraY - ballY) > 50){
-        //     Textobj.text = "失敗!!";
-        //     Invoke("ChangeScene", 2.0f);
-        // }
+        if(Mathf.Abs(cameraY - ballY) > 500){
+            Textobj.text = "失敗!!";
+            Invoke("ChangeScene", 2.0f);
+        }
 
         if(Input.GetKeyDown(KeyCode.Return)){
             ChangeScene();
