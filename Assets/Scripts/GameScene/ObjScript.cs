@@ -6,7 +6,7 @@ public class ObjScript : MonoBehaviour
 {
     public float collect_angle;
     public float angle;
-    public bool flag;
+    private bool flag;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,11 +18,11 @@ public class ObjScript : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            transform.Rotate(new Vector3(0f, 0f, 15f));
+            transform.Rotate(new Vector3(0f, 0f, 30f));
         }
         else if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            transform.Rotate(new Vector3(0f, 0f, -15f));
+            transform.Rotate(new Vector3(0f, 0f, -30f));
         }
 
         angle = Mathf.Round(transform.eulerAngles.z);

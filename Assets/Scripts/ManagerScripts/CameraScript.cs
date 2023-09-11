@@ -24,7 +24,13 @@ public class CameraScript : MonoBehaviour
         else if(check){
             check = false;
             SEManager.Instance.PlaySE(8); //失敗SE
+            Invoke("ChangeScene", 2.0f);
         }
 
+    }
+
+    void ChangeScene()
+    {
+        MySceneChangeHelper.MyLoadScene(MySceneChangeHelper.MyScene.GameScene);
     }
 }

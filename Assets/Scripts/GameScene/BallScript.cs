@@ -4,14 +4,16 @@ using UnityEngine;
 
 public class BallScript : MonoBehaviour
 {
-    public bool flag;
+    private bool flag;
+    private bool goal_flag;
     private Dictionary<GameObject, bool> objectFlags = new Dictionary<GameObject, bool>();
     
 
     // Start is called before the first frame update
     void Start()
     {
-        flag = true;    
+        flag = true;
+        goal_flag = true;
     }
 
     // Update is called once per frame
@@ -23,7 +25,7 @@ public class BallScript : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         Debug.Log("接触したよ");
-        ScoreManager.Instance.AddScore(1);
+        //ScoreManager.Instance.AddScore(1);
         ObjScript objscript = collision.gameObject.GetComponent<ObjScript>();
         // if(objscript.CheckAngle()){
         //     Debug.Log("nullじゃないよ");
@@ -37,11 +39,24 @@ public class BallScript : MonoBehaviour
                 flag = false;
             }
         }
+        else if(collision.gameObject.CompareTag("goal") && goal_flag){
+            goal_flag = false;
+            SEManager.Instance.PlaySE(9);
+            Rigidbody rb = GetComponent<Rigidbody>();
+            rb.velocity =  Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            Invoke("ChangeScene", 3.0f);
+        }
         
     }
 
     public bool CheckFlag()
     {
         return flag;
+    }
+
+    void ChangeScene()
+    {
+        MySceneChangeHelper.MyLoadScene(MySceneChangeHelper.MyScene.ResultScene);
     }
 }

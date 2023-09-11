@@ -13,6 +13,13 @@ public class ResultScene : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if(Input.GetKeyDown(KeyCode.Return)){
+            ChangeScene();
+        }
+    }
+
+    void ChangeScene()
+    {
+        MySceneChangeHelper.MyLoadScene(MySceneChangeHelper.MyScene.TitleScene);
     }
 }

@@ -12,6 +12,7 @@ public class SEManager : SingletonMonoBehaviour<SEManager>
     public AudioClip Ra;
     public AudioClip Si;
     public AudioClip GameOver;
+    public AudioClip Goal;
 
 
     private AudioSource audioSource;
@@ -48,6 +49,9 @@ public class SEManager : SingletonMonoBehaviour<SEManager>
                 break;
             case 8:
                 audioSource.PlayOneShot(GameOver);
+                break;
+            case 9:
+                audioSource.PlayOneShot(Goal);
                 break;
         }
     }
